@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Gayane bakery</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="headet-container">
+                <div>
+                    <a href="home.html" id="brand-logo">
+                        <img src="logo.png" alt="logo">
+                    </a>
+                </div>
+                <div>
+                    <ul class="navbar">
+                        <li class="nav-item active"><a href="home.html">Main</a></li>
+                        <li class="nav-item"><a href="">Menu</a></li>
+                        <li class="nav-item"><a href="">About us</a></li>
+                        <li class="nav-item"><a href="">Order a cake</a></li>
+                        <li class="nav-item"><a href="">Contacts</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="" class="icon"><img src="cart-logo.png" alt=""></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="menu-container">
+            <h2 class="section-title">Menu</h2>
+            <div class="menu">
+                <a href="" class="card">
+                    <p class="card-title">Cakes</p>
+                    <img src="Cake.png" alt="" class="card-img"></img>
+                </a>
+                <a href="" class="card">
+                    <p class="card-title">Desserts</p>
+                    <img src="Dessert.png" alt="" class="card-img">
+                </a>
+                <a href="" class="card">
+                    <p class="card-title">Bakery</p>
+                    <img src="Bakery.png" alt="" class="card-img">
+                </a>
+                <a href="" class="card">
+                    <p class="card-title">Cookies</p>
+                    <img src="Cookies.png" alt="" class="card-img">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="top-container">
+            <h2 class="section-title">Top</h2>
+            <div class="top-grid">
+                <div class="grid-item">
+                    <img src="https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg" alt="" class="item-img">
+                    <div class="item-info">
+                        <h5 class="card-title">Brauni</h5>
+                        <p class="item-description">Some long description</p>
+                        <div class="item-detail">
+                            <p class="item-price">15 0000 sum</p>
+                            <button class="add-button" onclick="swapButton(this)">Add</button>
+                            <div class="modify-quantity">
+                                <button class="decrement-button" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment-button" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg" alt="" class="item-img">
+                    <div class="item-info">
+                        <h5 class="card-title">Brauni</h5>
+                        <p class="item-description">Some long description</p>
+                        <div class="item-detail">
+                            <p class="item-price">15 0000 sum</p>
+                            <button class="add-button" onclick="swapButton(this)">Add</button>
+                            <div class="modify-quantity">
+                                <button class="decrement-button" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment-button" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg" alt="" class="item-img">
+                    <div class="item-info">
+                        <h5 class="card-title">Brauni</h5>
+                        <p class="item-description">Some long description</p>
+                        <div class="item-detail">
+                            <p class="item-price">15 0000 sum</p>
+                            <button class="add-button" onclick="swapButton(this)">Add</button>
+                            <div class="modify-quantity">
+                                <button class="decrement-button" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment-button" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg" alt="" class="item-img">
+                    <div class="item-info">
+                        <h5 class="card-title">Brauni</h5>
+                        <p class="item-description">Some long description</p>
+                        <div class="item-detail">
+                            <p class="item-price">15 0000 sum</p>
+                            <button class="add-button" onclick="swapButton(this)">Add</button>
+                            <div class="modify-quantity">
+                                <button class="decrement-button" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment-button" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg" alt="" class="item-img">
+                    <div class="item-info">
+                        <h5 class="card-title">Brauni</h5>
+                        <p class="item-description">Some long description</p>
+                        <div class="item-detail">
+                            <p class="item-price">15 0000 sum</p>
+                            <button class="add-button" onclick="swapButton(this)">Add</button>
+                            <div class="modify-quantity">
+                                <button class="decrement-button" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment-button" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg" alt="" class="item-img">
+                    <div class="item-info">
+                        <h5 class="card-title">Brauni</h5>
+                        <p class="item-description">Some long description</p>
+                        <div class="item-detail">
+                            <p class="item-price">15 0000 sum</p>
+                            <button class="add-button" onclick="swapButton(this)">Add</button>
+                            <div class="modify-quantity">
+                                <button class="decrement-button" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment-button" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg" alt="" class="item-img">
+                    <div class="item-info">
+                        <h5 class="card-title">Brauni</h5>
+                        <p class="item-description">Some long description</p>
+                        <div class="item-detail">
+                            <p class="item-price">15 0000 sum</p>
+                            <button class="add-button" onclick="swapButton(this)">Add</button>
+                            <div class="modify-quantity">
+                                <button class="decrement-button" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment-button" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <img src="https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg" alt="" class="item-img">
+                    <div class="item-info">
+                        <h5 class="card-title">Brauni</h5>
+                        <p class="item-description">Some long description</p>
+                        <div class="item-detail">
+                            <p class="item-price">15 0000 sum</p>
+                            <button class="add-button" onclick="swapButton(this)">Add</button>
+                            <div class="modify-quantity">
+                                <button class="decrement-button" onclick="changeQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increment-button" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
