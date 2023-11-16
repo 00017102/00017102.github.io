@@ -1,11 +1,18 @@
 body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     background-color:#faebd7;
 }
 
-/* Top Navigation */
+main{
+    flex: 1;
+}
 
+
+/* Top Navigation */
 header{
     width: 100%;
     background-color: #faebd7;
@@ -57,7 +64,7 @@ header{
     color: #07783c;
 }
 
-.active a{
+.navbar .active a{
     color: rgb(227, 97, 46);
 }
 
@@ -155,11 +162,11 @@ footer {
     fill: #07783c;
 }
 
-.active a{
+.bottom-nav .active a{
     color: #e3612e;
 }
 
-.active a svg{
+.bottom-nav .active a svg{
     fill: #e3612e;
 }
 

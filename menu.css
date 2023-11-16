@@ -1,68 +1,41 @@
-/* Menu */
-.section-title{
-    font-size: 2em;
-    font-family: Helvetica;
-}
-
-.menu-container {
-    width: 100%;
-    padding: 2em 1.25em;
-    margin-top: 2em;
-    box-sizing: border-box;
-}
-
-.menu-container .menu {
+.button-container{
     display: flex;
     justify-content: space-around;
-    padding: 15px 0;
-    background-color: #d9e3da;
-    box-shadow: 0 4px 8px #0000001a;
-    border-radius: 10px;
-    align-items: center;
-    flex-wrap: nowrap;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    flex-wrap: wrap;
 }
 
-.menu-container .card {
-    flex: 1 0 auto;
-    text-align: center; 
-    margin: 1em;
-    border-radius: 5px;
-    padding: 1em;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+.button-container button{
+    font-size: 1.5em;
+    width: 6em;
     background-color: #c3d1f8;
-    text-decoration: none;
+    border: none;
+    border-radius: 1em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    margin: 5px;
 }
 
-.card-title {
-    font-size: 1.2rem;
-    color: black; 
-    font-weight: bold; 
-    margin-bottom: 0.5rem;
+.button-container .active{
+    background-color: #8ba3e8;
 }
 
-.menu-container .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
-}
-
-.menu-container .card-img {
-    max-width: 7em;
-    height: auto;
-}
-
-.menu-container .card-title {
-    margin: 5px 0;
+.button-container button:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Top Products section */
 
-.top-products-container {
+.menu-grid-container {
     padding: 5em 1.25em; /*space between two sections*/
     margin-top: 2em;
     background-color: #f5f5f5;
 }
 
-.top-products-grid {
+.menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* a responsive grid */
     gap: 1rem; /* space between grid items */
@@ -153,16 +126,10 @@
     font-size: 1.5rem;
 }
 
-/* other improvments for little screens*/
+
 @media (max-width: 660px) {
-    .menu-container .menu {
-        overflow-x:scroll;
-        justify-content: flex-start;
-    }
-    .card-title {
-        font-size: 1rem; /* Adjust font size for smaller screens */
-    }
-    .top-products-grid {
-        grid-template-columns: 1fr; /* Full width grid items on smaller screens */
+    .button-container button {
+        font-size: 1.2em; /* Smaller font size on small screens */
+        width: 6em; /* Smaller width to fit more comfortably */
     }
 }
