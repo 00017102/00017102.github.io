@@ -19,7 +19,7 @@
 }
 
 .button-container .active{
-    background-color: #8ba3e8;
+    background-color: #547aed;
 }
 
 .button-container button:hover{
@@ -30,8 +30,7 @@
 /* Top Products section */
 
 .menu-grid-container {
-    padding: 5em 1.25em; /*space between two sections*/
-    margin-top: 2em;
+    padding: 4em 1.25em; /*space between two sections*/
     background-color: #f5f5f5;
 }
 
@@ -39,7 +38,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* a responsive grid */
     gap: 1rem; /* space between grid items */
-    margin-top: 2rem;
 }
 
 /* Top Products item */
