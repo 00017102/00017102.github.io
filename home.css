@@ -1,7 +1,4 @@
-
-
 /* Menu */
-
 .section-title{
     font-size: 2em;
     font-family: Helvetica;
@@ -126,7 +123,6 @@
 }
 
 /* elements to appear */
-
 .modify-quantity{
     display: none;
     align-items: center;
@@ -156,139 +152,7 @@
     font-size: 1.5rem;
 }
 
-/* Footer */
-
-footer {
-    background-color: #f3e5ab;
-    color: #333;
-    padding: 1.2em 0;
-    font-size: 1em;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 0 2em;
-}
-
-.footer-section{
-    max-width: 200px;
-    margin-bottom: 1em;
-}
-
-.footer-title{
-    margin-bottom: 1em;
-    font-family: Helvetica;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
-.footer-title:hover{
-    color: #07783c;
-}
-
-.footer-information {
-    line-height: 1.6;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 1.4em;
-    font-size: 1.6em;
-    padding: 0, 2em;
-}
-
-.footer-section svg{
-    fill: rgb(90, 151, 152);
-    margin-right: 1em;
-    height: 2.5vw;
-    vertical-align: middle;
-    transition: transform 0.25s;
-}
-
-.footer-section svg:hover{
-    transform: scale(1.6);
-}
-
-/*bottom navigation to appear */
-
-.bottom-nav-container {
-    display: none;
-    width: 100%;
-    position: sticky;
-    bottom: 0;
-    border-top: 1px solid #414141;
-    background-color: #f6e398;
-    z-index: 2; /* Ensures it stays above other content */
-}
-
-.bottom-nav {
-    list-style: none; /* Removes list styling */
-    padding: 0; /* Removes padding */
-    margin: 0; /* Removes margin */
-    display: flex; /* Align items in a row */
-    justify-content: space-around; /* Evenly spaces out the nav items */
-    text-align: center; /* Centers the text */
-}
-
-.bottom-nav-item {
-    flex-grow: 1; /* Allows each item to grow evenly */
-    padding: 10px 5px; /* Adds padding */
-}
-
-.bottom-nav-item a {
-    text-decoration: none;
-    color: #730362;
-    display: block;
-}
-
-.bottom-nav-item a:hover{
-    color: #07783c;
-}
-
-.bottom-nav-item a:hover svg{
-    fill: #07783c;
-}
-
-.active a{
-    color: #e3612e;
-}
-
-.active a svg{
-    fill: #e3612e;
-}
-
-.bottom-nav-item svg {
-    fill: #000000; /* SVG icon color */
-    width: 24px; /* Icon width */
-    height: 24px; /* Icon height */
-}
-
-.bottom-nav-item h6 {
-    margin: 5px 0 0 0; /* Adjusts margin above the text */
-    font-size: 0.75rem; /* Text size */
-}
-
-/* bottom navigation appearing*/
-
-@media (max-width: 950px){
-    .bottom-nav-container {
-        display: inline-block;
-    }
-    .header-icon-container,
-    .navbar-container{
-        display: none;
-    }
-    .header-container{
-        justify-content: center;
-    }
-    #brand-logo img{
-        width: 120px;
-    }
-}
-
 /* other improvments for little screens*/
-
 @media (max-width: 660px) {
     .menu-container .menu {
         overflow-x:scroll;
@@ -297,25 +161,7 @@ footer {
     .card-title {
         font-size: 1rem; /* Adjust font size for smaller screens */
     }
-
-    .top-grid {
+    .top-products-grid {
         grid-template-columns: 1fr; /* Full width grid items on smaller screens */
-    }
-    .footer{
-        padding: 0.6em 0;
-    }
-    .footer-container {
-        padding: 0 2em; /* Reduces side padding on smaller screens */
-        flex-direction: column; /* Stacks footer sections vertically */
-        align-items: center; /* Centers items when stacked */
-    }
-
-    .footer-section {
-        width: 100%; /* Full width sections for better readability */
-        text-align: center; /* Centers the content */
-    }
-
-    .footer-section svg {
-        margin: 0.5em 0; /* Adds space around SVGs for clarity */
     }
 }
