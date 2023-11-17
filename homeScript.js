@@ -90,15 +90,41 @@ function createProducts(grid, gridItem, products) {
         productCard.querySelector('.card-title').textContent = product.title;
         productCard.querySelector('.item-description').textContent = product.description;
         productCard.querySelector('.item-price').textContent = product.formatPrice();
-
-        // Update button event listeners
-        productCard.querySelector('.add-button').onclick = function() { swapButton(this); };
-        productCard.querySelector('.decrement-button').onclick = function() { changeQuantity(this, -1); };
-        productCard.querySelector('.increment-button').onclick = function() { changeQuantity(this, 1); };
-
+        
+        productCard.addEventListener('click', function(event) {
+            if (!event.target.classList.contains('add-button') && 
+            !event.target.classList.contains('decrement-button') &&
+            !event.target.classList.contains('increment-button')) {
+                openwindow(product);
+            }
+        });
         // Append the card to the container
         grid.appendChild(productCard);
     });
+}
+
+let windowContainer = document.getElementById('windowContainer');
+
+function openwindow(product) {
+    windowContainer.style.display = "block";
+    // Populate window with product details
+    windowContainer.querySelector('.window-img').src = product.imgSrc;
+    windowContainer.querySelector('.window-title').textContent = product.title;
+    windowContainer.querySelector('.window-description').textContent = product.description;
+    windowContainer.querySelector('.item-price').textContent = product.formatPrice();
+}
+
+// Close the window
+let closeWindow = document.getElementById('close-window');
+closeWindow.onclick = function() {
+    windowContainer.style.display = "none";
+}
+
+// Close window when clicking outside of it
+window.onclick = function(event) {
+    if (event.target == windowContainer) {
+        windowContainer.style.display = "none";
+    }
 }
 
 function swapButton(element){

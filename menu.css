@@ -124,10 +124,60 @@
     font-size: 1.5rem;
 }
 
+.window-container {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.window {
+    background-color: #fefefe;
+    margin: 20% auto; /* 15% from the top and centered */
+    padding: 1.3em;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.window-content{
+    display: flex;
+    align-items: center;
+}
+
+.window-img{
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+}
+
+#close-window {
+    fill: #aaa;
+    margin-bottom: 1em;
+    height: 1.5em;
+}
+
+#close-window:hover {
+    fill: #000000;
+    cursor: pointer;
+}
 
 @media (max-width: 660px) {
     .button-container button {
         font-size: 1.2em; /* Smaller font size on small screens */
         width: 6em; /* Smaller width to fit more comfortably */
+    }
+    .window-content {
+        flex-direction: column;
+    }
+    .window-img{
+        width: 100%;
     }
 }
