@@ -80,7 +80,7 @@ function updateMenuGrid(menuGrid, gridItem, products, button){
 }
 
 
-function createProducts(grid, gridItem, products) {
+function createProducts(grid, gridItem, products, enableWindow = true) {
     products.forEach(product => {
         const productCard = gridItem.cloneNode(true);
         productCard.id = '';
@@ -91,13 +91,15 @@ function createProducts(grid, gridItem, products) {
         productCard.querySelector('.item-description').textContent = product.description;
         productCard.querySelector('.item-price').textContent = product.formatPrice();
         
-        productCard.addEventListener('click', function(event) {
-            if (!event.target.classList.contains('add-button') && 
-            !event.target.classList.contains('decrement-button') &&
-            !event.target.classList.contains('increment-button')) {
-                openwindow(product);
-            }
-        });
+        if(enableWindow){
+            productCard.addEventListener('click', function(event) {
+                if (!event.target.classList.contains('add-button') && 
+                !event.target.classList.contains('decrement-button') &&
+                !event.target.classList.contains('increment-button')) {
+                    openwindow(product);
+                }
+            });
+        }
         // Append the card to the container
         grid.appendChild(productCard);
     });
@@ -112,20 +114,20 @@ function openwindow(product) {
     windowContainer.querySelector('.window-title').textContent = product.title;
     windowContainer.querySelector('.window-description').textContent = product.description;
     windowContainer.querySelector('.item-price').textContent = product.formatPrice();
-}
-
-// Close the window
-let closeWindow = document.getElementById('close-window');
-closeWindow.onclick = function() {
-    windowContainer.style.display = "none";
-}
-
-// Close window when clicking outside of it
-window.onclick = function(event) {
-    if (event.target == windowContainer) {
+    // Close the window
+    let closeWindow = document.getElementById('close-window');
+    closeWindow.onclick = function() {
         windowContainer.style.display = "none";
     }
+    
+    // Close window when clicking outside of it
+    window.onclick = function(event) {
+        if (event.target == windowContainer) {
+            windowContainer.style.display = "none";
+        }
+    }
 }
+
 
 function swapButton(element){
     element.style.display = 'none';
@@ -150,7 +152,7 @@ function changeQuantity(element, delta){
 document.addEventListener('DOMContentLoaded', () => {
     const topProductsGrid = document.querySelector('.top-products-grid');
     const gridItem = document.getElementById('template')
-    createProducts(topProductsGrid, gridItem, topProducts);
+    createProducts(topProductsGrid, gridItem, topProducts, false);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
