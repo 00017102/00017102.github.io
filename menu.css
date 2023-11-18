@@ -67,21 +67,30 @@
     padding-top: 0;
 }
 
+.item-title
+
 .item-description {
     font-size: 1rem;
     margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    color: black; 
+    font-weight: bold; 
+    margin-bottom: 0.5rem;
 }
   
 .item-detail {
     display: flex;
     align-items: center;
     justify-content: space-between; /* positions the price and button on opposite ends */
-  }
+}
   
 .item-price {
     font-size: 1rem;
     font-weight: bold;
-  }
+}
   
 
 .add-button {
@@ -137,7 +146,7 @@
 }
 
 .window {
-    background-color: #fefefe;
+    background-color: #faebd7;
     margin: 20% auto; /* 15% from the top and centered */
     padding: 1.3em;
     border: 1px solid #888;
@@ -154,8 +163,37 @@
 
 .window-img{
     width: 50%;
-    height: 50%;
+    height: 60%;
     object-fit: contain;
+}
+
+.window-info{
+    margin-left: 2em;
+    font-family: Helvetica;
+}
+
+.window-title{
+    font-size: 2em;
+
+}
+
+.window-description{
+    font-size: 1.2em;
+}
+
+.window .item-price{
+    font-size: 1.4em;
+}
+
+.window .add-button {
+    width: 8em;
+    height: 3em;
+}
+
+.window .increment-button,
+.window .decrement-button{
+    height: 3em;
+    width: 4em;
 }
 
 #close-window {
@@ -169,6 +207,22 @@
     cursor: pointer;
 }
 
+@media (max-width: 900px){
+    .window-info{
+        margin-left: 1em;
+    }
+    .window .add-button {
+        width: 7em;
+        height: 2.5em;
+    }
+    
+    .window .increment-button,
+    .window .decrement-button{
+        height: 2.5em;
+        width: 3em;
+    }
+}
+
 @media (max-width: 660px) {
     .button-container button {
         font-size: 1.2em; /* Smaller font size on small screens */
@@ -179,5 +233,17 @@
     }
     .window-img{
         width: 100%;
+    }
+    .window-info{
+        margin-left: 0;
+    }
+    .window-title{
+        font-size: 1.7em
+    }
+    .window-description{
+        font-size: 1.1em;
+    }
+    .window .item-price{
+        font-size: 1.3em;
     }
 }
