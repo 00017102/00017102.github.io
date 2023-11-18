@@ -1,3 +1,4 @@
+//product class
 class Product{
     constructor(title, description, price, imgSrc){
         this.title = title;
@@ -10,7 +11,7 @@ class Product{
     }
 }
 
-// Creating instances
+//creating instances
 const topProducts = [
     new Product("Brauni", "Some description about the bakery with information of what was it made of etc.", "15 000", "https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg"),
     new Product("Clinkers", "Some description about the cake with information of what was it made of etc.", "400 000", "https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg"),
@@ -46,14 +47,40 @@ const bakeries = [
 ]
 
 const cookies = [
-    
+
 ]
 
 function createMenuItems(){
     const menuGrid = document.querySelector('.menu-grid')
     const gridItem = document.getElementById('template')
-
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    //map string passed to category array
+    const categoryMap = {
+        'cakes': cakes,
+        'desserts': desserts,
+        'bakeries': bakeries,
+        'cookies': cookies
+    };
+    //map string passed to button
+    const buttonMap = {
+        'cakes': document.getElementById('btnCakes'),
+        'desserts': document.getElementById('btnDesserts'),
+        'bakeries': document.getElementById('btnBakeries'),
+        'cookies': document.getElementById('btnCookies')
+    }
+    //check if category is passed and exists in the Map
+    if (category && categoryMap[category]){
+        updateMenuGrid(menuGrid, gridItem, categoryMap[category], buttonMap[category]);
+    }
+    //if category is not passed, i.e. it is novigate through navigation bar, show cakes
+    else{
+        updateMenuGrid(menuGrid, gridItem, cakes, document.getElementById('btnCakes'));
+    }
+    
     document.getElementById('btnCakes').addEventListener('click', function(){
+        //with "this" pass the button on which user clicked
         updateMenuGrid(menuGrid, gridItem, cakes, this);
     });
     document.getElementById('btnDesserts').addEventListener('click', function(){
@@ -67,15 +94,20 @@ function createMenuItems(){
     });    
 }
 
+//update function for menu grid to change items when clicked on button
 function updateMenuGrid(menuGrid, gridItem, products, button){
     const buttons = document.querySelectorAll('.button-container button');
+    //remove active class from all buttons
     buttons.forEach(btn =>{
         btn.classList.remove('active')
     });
+    //add active class for button passed
     button.classList.add('active')
+    //remove items present
     while (menuGrid.children.length > 1) {
         menuGrid.removeChild(menuGrid.lastChild);
     }
+    //create items needed
     createProducts(menuGrid, gridItem, products);
 }
 
@@ -90,7 +122,7 @@ function createProducts(grid, gridItem, products, enableWindow = true) {
         productCard.querySelector('.card-title').textContent = product.title;
         productCard.querySelector('.item-description').textContent = product.description;
         productCard.querySelector('.item-price').textContent = product.formatPrice();
-        
+        //if window should be enabled, add click listener, by default it is true
         if(enableWindow){
             productCard.addEventListener('click', function(event) {
                 if (!event.target.classList.contains('add-button') && 
@@ -100,27 +132,26 @@ function createProducts(grid, gridItem, products, enableWindow = true) {
                 }
             });
         }
-        // Append the card to the container
+        //append the card to the container
         grid.appendChild(productCard);
     });
 }
 
-let windowContainer = document.getElementById('windowContainer');
 
 function openwindow(product) {
+    let windowContainer = document.getElementById('windowContainer');
     windowContainer.style.display = "block";
-    // Populate window with product details
+    //populate window with product details
     windowContainer.querySelector('.window-img').src = product.imgSrc;
     windowContainer.querySelector('.window-title').textContent = product.title;
     windowContainer.querySelector('.window-description').textContent = product.description;
     windowContainer.querySelector('.item-price').textContent = product.formatPrice();
-    // Close the window
+    //close the window
     let closeWindow = document.getElementById('close-window');
     closeWindow.onclick = function() {
         windowContainer.style.display = "none";
     }
-    
-    // Close window when clicking outside of it
+    //close window when clicking outside of it
     window.onclick = function(event) {
         if (event.target == windowContainer) {
             windowContainer.style.display = "none";
@@ -128,12 +159,13 @@ function openwindow(product) {
     }
 }
 
-
+//swap add button to -, quantity and + 
 function swapButton(element){
     element.style.display = 'none';
     element.nextElementSibling.style.display = 'flex';
 }
 
+//chenge the quantity when buttons + and - are clicked
 function changeQuantity(element, delta){
     let quantityModifier = element.parentNode;
     let quantityDisplay = quantityModifier.querySelector('.quantity');
@@ -149,12 +181,15 @@ function changeQuantity(element, delta){
     quantityDisplay.textContent = quantity;
 }
 
+//when dom loaded create top products
 document.addEventListener('DOMContentLoaded', () => {
     const topProductsGrid = document.querySelector('.top-products-grid');
     const gridItem = document.getElementById('template')
+    //pass false to not create windows when clicked on products on main page
     createProducts(topProductsGrid, gridItem, topProducts, false);
 });
 
+//when dom loaded create menu items
 document.addEventListener("DOMContentLoaded", () => {
     createMenuItems();
 })

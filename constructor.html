@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="layout.css">
-    <script src="homeScript.js"></script>
-    <title>Gayane Bakery: Menu</title>
+    <link rel="stylesheet" href="constructor.css">
+    <title>Constructor | Gayane Bakery</title>
 </head>
 <body>
     <header>
@@ -30,7 +30,82 @@
         </nav>
     </header>
     <main>
-        
+        <h1>Build Your Cake</h1>
+        <form id="cakeCunstructorForm" action="">
+            <section class="form-section">
+                <h2>Choose a Size</h2>
+                <select name="size" id="cakeSize">
+                    <option value="none"></option>
+                    <option value="bento">Bento: 1-2 people</option>
+                    <option value="small" class="option">Small: 4-6 people</option>
+                    <option value="medium" class="option">Medium: 6-8</option>
+                    <option value="large" class="option">Large: 8-10</option>
+                    <option value="xlarge" class="option">Extra large: 10+</option>
+                </select>
+            </section>
+            <section class="form-section">
+                <h2>Select Flavor</h2>
+                <select name="flavor" id="cakeFlavor">
+                    <option value="none"></option>
+                    <option value="vanilla" class="option">Vanilla</option>
+                    <option value="chocolate" class="option">Chocolate</option>
+                    <option value="redVelvet" class="option">Red Velvet</option>
+                    <option value="lemon" class="option">Lemon</option>
+                    <option value="banana" class="option">Banana</option>
+                    <option value="cheesecake" class="option">Cheesecake</option>
+                    <option value="coffee" class="option">Coffee</option>
+                    <option value="coconut" class="option">Coconut</option>
+                    <option value="fruit" class="option">Fruit</option>
+                    <option value="pistachio" class="option">Pistachio</option>
+                    <option value="peanut" class="option">Peanut</option>
+                    <option value="caramel" class="option">Caramel</option>
+                    <option value="blackForest" class="option">Black Forest</option>
+                    <option value="strawberry" class="option">Strawberry</option>
+                </select>
+            </section class="form-section">
+            <section class="form-section">
+                <h2>Custom Writing on Cake</h2>
+                <div class="no-writing">
+                    <input type="radio" id="noWriting" name="customWriting" value="none" class="radio" checked>
+                    <label for="noWriting" class="label">None</label>
+                </div>
+                <div class="yes-writing">
+                    <input type="radio" id="yesWriting" name="customWriting" value="yes" class="radio">
+                    <label for="yesWriting" class="label">Add Custom Writing</label>
+                </div>
+                <div id="customWritingInput" style="display:none;">
+                    <label for="writingText" class="writing-label">Your Message:</label>
+                    <input type="text" id="writingText" name="writingText" placeholder="Happy Birthday...">
+                </div>
+            </section>
+            <section class="form-section">
+                <h2>Toppings</h2>
+                <div>
+                    <input type="checkbox" id="nuts" name="topping" value="nuts" class="topping">
+                    <label for="nuts" class="label">Nuts</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="chocolateChips" name="topping" value="chocolateChips" class="topping">
+                    <label for="chocolateChips" class="label">Chocolate Chips</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="sprinkles" name="topping" value="sprinkles" class="topping">
+                    <label for="sprinkles" class="label">Sprinkles</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="fruit" name="topping" value="fruit" class="topping">
+                    <label for="fruit" class="label">Fresh Fruit</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="whippedCream" name="topping" value="whippedCream" class="topping">
+                    <label for="whippedCream" class="label">Whipped Cream</label>
+                </div>
+            </section>
+            <input type="submit" value="Order Cake" id="inputButton">
+            <section class="form-section" id="priceDisplaySection">
+                <h2>Estimated Cake Price: <span id="cakePrice">0</span></h2>
+            </section>
+        </form>
     </main>
     <footer>
         <div class="footer-container">
@@ -83,5 +158,7 @@
             </li>
         </ul>
     </nav>
+    <script src="homeScript.js"></script>
+    <script src="constructor.js"></script>
 </body>
 </html>

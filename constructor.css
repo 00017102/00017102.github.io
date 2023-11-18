@@ -1,0 +1,81 @@
+body{
+    font-family: Helvetica
+}
+
+
+h1, h2 {
+    color: #333333
+}
+
+.form-section {
+    margin: 20px;
+    padding: 10px;
+    background-color: #d9e3da;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.radio, .topping {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.label, .writing-label {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#inputButton {
+    background-color: #c3d1f8;
+    color: #333;
+    padding: 10px 20px;
+    margin: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#inputButton:hover {
+    background-color: #547aed;
+}
+
+#priceDisplaySection {
+    background-color: #f0ead6; /* Lighter shade for distinction */
+    color: #333;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#cakePrice {
+    font-size: 1.5em;
+    color: #547aed; /* Highlight color for the price */
+    font-weight: bold;
+}
+
+
+@media screen and (max-width: 768px) {
+    select, input[type="text"] {
+        width: 90%;
+    }
+    #priceDisplaySection {
+        margin: 10px;
+        padding: 5px;
+    }
+    .form-section {
+        margin: 10px;
+    }
+}
