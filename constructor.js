@@ -86,13 +86,13 @@ function updatePrice() {
         strawberry: 95000,
         other: 100000 
     };
-
     //update price accroding to size
     totalPrice += sizePrices[selectedSize];
     //update price according to flavour
     totalPrice += flavorPrices[selectedFlavor];
     //calculate price for toppings
     if(selectedFlavor != 'none' && selectedSize != 'none'){
+        document.getElementById('inputButton').removeAttribute('disabled');
         const toppings = document.querySelectorAll('input[name="topping"]:checked');
         const numberOfToppings = toppings.length;
         totalPrice += numberOfToppings * toppingPrice;
@@ -101,6 +101,8 @@ function updatePrice() {
             //update price if yes
             totalPrice += customWritingPrice;
         }
+    }else{
+        document.getElementById('inputButton').setAttribute('disabled', '');
     }
     //format srice
     function formatPrice(totalPrice){

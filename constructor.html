@@ -63,9 +63,9 @@
                     <option value="strawberry" class="option">Strawberry</option>
                     <option value="other" class="option">Other</option>
                 </select>
-                <div id="customFlavor" style="display:none;">
+                <div id="customFlavor">
                     <label for="flavorText" class="flavor-label">Flavour:</label>
-                    <input type="text" id="flavor" name="flavorText" placeholder="Desired Flavor">
+                    <input type="text" id="flavorText" name="flavorText" placeholder="Desired Flavor">
                 </div>
             </section class="form-section">
             <section class="form-section">
@@ -78,7 +78,7 @@
                     <input type="radio" id="yesWriting" name="customWriting" value="yes" class="radio">
                     <label for="yesWriting" class="label">Add Custom Writing</label>
                 </div>
-                <div id="customWritingInput" style="display:none;">
+                <div id="customWritingInput">
                     <label for="writingText" class="writing-label">Your Message:</label>
                     <input type="text" id="writingText" name="writingText" placeholder="Happy Birthday...">
                 </div>
@@ -106,7 +106,7 @@
                     <label for="whippedCream" class="label">Whipped Cream</label>
                 </div>
             </section>
-            <input type="submit" value="Order Cake" id="inputButton">
+            <input type="submit" value="Order Cake" id="inputButton" disabled>
             <section class="form-section" id="priceDisplaySection">
                 <h2>Estimated Cake Price: <span id="cakePrice">0</span></h2>
             </section>
@@ -163,7 +163,6 @@
             </li>
         </ul>
     </nav>
-    <script src="homeScript.js"></script>
     <script src="constructor.js"></script>
 </body>
 </html>
