@@ -77,7 +77,7 @@ select, input[type="text"] {
 }
 
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     #priceDisplaySection {
         margin: 1em;
         padding: 0.5em;
