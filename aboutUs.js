@@ -41,26 +41,12 @@ function scroll(){
     const leftButton = document.querySelector('.scroll-button.left');
     const rightButton = document.querySelector('.scroll-button.right');
     const scrollWidth = scrollContainer.lastChild.offsetWidth;
-    const totalWidth = scrollWidth * staffMembers.length;
     leftButton.addEventListener('click', function() {
-        if (scrollContainer.scrollLeft - scrollWidth <= 0) {
-            // If at the start, jump to the end
-            scrollContainer.scrollLeft = totalWidth;
-        } else {
             scrollContainer.scrollLeft -= scrollWidth;
-        }
     });
     
     rightButton.addEventListener('click', function() {
-        console.log(totalWidth);
-        if (scrollContainer.scrollLeft >= totalWidth) {
-            console.log(scrollContainer.scrollLeft + scrollWidth);
-            // If at the end, jump to the start
-            scrollContainer.scrollLeft = 0;
-        } else {
-            console.log(scrollContainer.scrollLeft + scrollWidth);
             scrollContainer.scrollLeft += scrollWidth;
-        }
     });
 }
 
