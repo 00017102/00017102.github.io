@@ -13,6 +13,56 @@ main{
 }
 
 
+/* Burger Menu Icon */
+#burgerMenuIcon {
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+}
+
+.burger-line {
+    width: 2rem;
+    height: 0.25rem;
+    background-color: #333; /* Or any color that fits your design */
+    border-radius: 10px;
+}
+
+/* sidebar */
+#sidebarContainer{
+    display: none;
+    z-index: 2;
+    font-family:Georgia;
+    height: 100vh;
+    width: 280px;
+    position: fixed;
+    background-color: #d9e3da;
+    text-align: right;
+}
+#closeSidebarIcon{
+    padding: 1em;
+    width: 1.5em;
+}
+.sidebar{
+    text-align: left;
+    list-style-type: none;
+}
+.sidebar-item{
+    font-size: 1.3em;
+    padding-bottom: 1em;
+}
+
+.sidebar-item a{
+    text-decoration: none;
+    color: rgb(115, 3, 98);
+}
+
+.sidebar .active a{
+    color: rgb(227, 97, 46);
+}
+
 /* Top Navigation */
 header{
     font-family:Georgia;
@@ -209,10 +259,13 @@ footer {
         display: none;
     }
     .header-container{
-        justify-content: center;
+        padding: 0.3em;
     }
     #brand-logo img{
         width: 120px;
+    }
+    #burgerMenuIcon {
+        display: flex;
     }
 }
 

@@ -11,6 +11,21 @@ class Product{
     }
 }
 
+class CartProduct{
+    constructor(title, price, imgSrc, quantity = 1){
+        this.title = title;
+        this.price = price;
+        this.imgSrc = imgSrc;
+        this.quantity = quantity;
+    }
+    formatPrice() {
+        return `${this.price} sum`;
+    }
+}
+
+let cartProducts = [
+
+]
 //creating instances
 const topProducts = [
     new Product("Brauni", "Some description about the bakery with information of what was it made of etc.", "15 000", "https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg"),
@@ -24,7 +39,7 @@ const topProducts = [
     new Product("Forest Cake", "Some description about the cake with information of what was it made of etc.", "502 140","https://preppykitchen.com/wp-content/uploads/2018/04/Funfetti-cake-recipe-new.jpg"),
     new Product("Eggless Black Forest", "Some description about the bakery with the information of what was it made of etc.", "40 000","https://j6e2i8c9.rocketcdn.me/wp-content/uploads/2021/05/Eggless-Black-forest-Pastry-recipe-1.jpg"),
     new Product("Choux", "Some description about the bakery with information of what was it made of etc.", "15 000","https://sugarspunrun.com/wp-content/uploads/2023/02/choux-pastry-recipe-1-of-1-2.jpg")
-];
+]
 
 const cakes = [
     new Product("Clinkers", "Some description about the cake with information of what was it made of etc.", "400 000", "https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg"),
@@ -132,6 +147,16 @@ function createProducts(grid, gridItem, products, enableWindow = true) {
                 }
             });
         }
+        productCard.querySelector('.add-button').addEventListener('click', function(){
+            const cartProduct = new CartProduct(product.title, product.price, product.imgSrc);
+            cartProducts.push(cartProduct);
+            console.log(cartProducts);
+            productCard.querySelector('.modify-quantity').addEventListener('change', function(){
+                console.log(cartProducts);
+                const quantity = productCard.querySelector('.quantity').innerHTML;
+                cartProducts[cartProducts.findIndex(item => item.title == cartProduct.title)].quantity = quantity;
+            })
+        });
         //append the card to the container
         grid.appendChild(productCard);
     });
@@ -172,7 +197,7 @@ function changeQuantity(element, delta){
     let quantity = parseInt(quantityDisplay.textContent);
     
     quantity += delta;
-    
+
     if(quantity < 1){
         quantity = 1;
         quantityModifier.style.display = 'none';
@@ -181,12 +206,31 @@ function changeQuantity(element, delta){
     quantityDisplay.textContent = quantity;
 }
 
+function openSidebar(){
+    burgerMenuIcon = document.getElementById('burgerMenuIcon');
+    closeSidebarIcon = document.getElementById('closeSidebarIcon');
+    sidebarContainer = document.getElementById('sidebarContainer');
+    burgerMenuIcon.addEventListener('click', function(){
+        sidebarContainer.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+    closeSidebarIcon.addEventListener('click', function(){
+        sidebarContainer.style.display = 'none';
+        document.body.style.overflow = 'unset';
+    });
+}
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    openSidebar()
+});
+
+
 //when dom loaded create top products
 document.addEventListener('DOMContentLoaded', () => {
     const topProductsGrid = document.querySelector('.top-products-grid');
     const gridItem = document.getElementById('template')
     //pass false to not create windows when clicked on products on main page
-    createProducts(topProductsGrid, gridItem, topProducts, false);
+    createProducts(topProductsGrid, gridItem, topProducts, false);    
 });
 
 //when dom loaded create menu items
