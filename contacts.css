@@ -1,0 +1,50 @@
+.contact-section {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.bold{
+    font-weight: bold;
+}
+.contact-section h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.contact-info .numbers a,
+.contact-info p a {
+    color: #0000ff;
+    text-decoration: none;
+}
+
+.phone{
+    display: flex;
+    align-items: baseline;
+}
+
+.numbers{
+    margin-left: 0.4em;
+}
+.contact-info p a:hover{
+    color: #8a2be2;
+}
+.opening-hours{
+    display: flex;
+}
+.week-day{
+    font-style: italic;
+}
+.hours{
+    margin-left: 0.4em;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    line-height: 1.6;
+}

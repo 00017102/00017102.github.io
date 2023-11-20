@@ -1,5 +1,5 @@
 body{
-    font-family: Helvetica;
+    font-family: Helvetica, Arial;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -18,7 +18,7 @@ header{
     font-family:Georgia;
     width: 100%;
     background-color: #faebd7;
-    border-bottom: 0.5px solid #414141;
+    border-bottom: 1.5px solid #414141;
     position: sticky;
     top: 0;
     z-index: 1;
