@@ -80,7 +80,7 @@ p{
 
 .name{
     margin: 0;
-    font-size: 3em;
+    font-size: 2em;
     color: #333;
 }
 
@@ -98,5 +98,40 @@ p{
     .bakery-image{
         width: 100%;
         float: none;
+    }
+    .scroll-button {
+        width: 4em;
+        height: 2.5em;
+    }
+    .name{
+        font-size: 1em;
+    }
+    .role, .description {
+        font-size: 0.8em;
+    }
+    
+}
+
+@media (max-width: 660px) {
+    .staff-member{
+        margin-inline: 5%;
+    }
+    .staff-photo{
+        width: 75vw;
+        height: 75vw;
+    }
+    .scroll-button {
+        width: 3em;
+        height: 2.5em;
+    }
+    .staff-members-scroll{
+        scroll-padding-inline: 3%;
+    }
+}
+
+@media (max-width: 590px) {
+    .staff-member-container{
+        display: inline;
+        position: relative;
     }
 }

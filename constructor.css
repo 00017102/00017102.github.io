@@ -11,6 +11,7 @@ h1, h2 {
     background-color: #d9e3da;
     border-radius: 1em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
 }
 
 select, input[type="text"] {
@@ -39,11 +40,16 @@ select, input[type="text"] {
     cursor: pointer;
 }
 
+.input-button-container{
+    text-align: center;
+}
+
 #inputButton {
     background-color: #c3d1f8;
     color: #333;
+    font-size: 1em;
     padding: 1em 2em;
-    margin: 2em;
+    margin: 1em;
     border: none;
     border-radius: 1em;
     cursor: pointer;
@@ -76,6 +82,12 @@ select, input[type="text"] {
     font-weight: bold;
 }
 
+.form-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(42%, 1fr)); /* a responsive grid */
+    gap: 1rem; /* space between grid items */
+}
+
 
 @media (max-width: 768px) {
     #priceDisplaySection {
@@ -88,5 +100,8 @@ select, input[type="text"] {
     }
     .form-section {
         margin: 1em;
+    }
+    .form-container{
+        grid-template-columns: 1fr;
     }
 }

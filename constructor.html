@@ -32,81 +32,85 @@
     <main>
         <h1>Build Your Cake</h1>
         <form id="cakeCunstructorForm" action="">
-            <section class="form-section">
-                <h2>Choose a Size</h2>
-                <select name="size" id="cakeSize">
-                    <option value="none"></option>
-                    <option value="bento">Bento: 1-2 people</option>
-                    <option value="small" class="option">Small: 4-6 people</option>
-                    <option value="medium" class="option">Medium: 6-8</option>
-                    <option value="large" class="option">Large: 8-10</option>
-                    <option value="xlarge" class="option">Extra large: 10+</option>
-                </select>
+            <div class="form-container">
+                <section class="form-section">
+                    <h2>Choose a Size</h2>
+                    <select name="size" id="cakeSize">
+                        <option value="none"></option>
+                        <option value="bento">Bento: 1-2 people</option>
+                        <option value="small" class="option">Small: 4-6 people</option>
+                        <option value="medium" class="option">Medium: 6-8</option>
+                        <option value="large" class="option">Large: 8-10</option>
+                        <option value="xlarge" class="option">Extra large: 10+</option>
+                    </select>
+                </section>
+                <section class="form-section">
+                    <h2>Select Flavor</h2>
+                    <select name="flavor" id="cakeFlavor">
+                        <option value="none"></option>
+                        <option value="vanilla" class="option">Vanilla</option>
+                        <option value="chocolate" class="option">Chocolate</option>
+                        <option value="redVelvet" class="option">Red Velvet</option>
+                        <option value="lemon" class="option">Lemon</option>
+                        <option value="banana" class="option">Banana</option>
+                        <option value="cheesecake" class="option">Cheesecake</option>
+                        <option value="coffee" class="option">Coffee</option>
+                        <option value="coconut" class="option">Coconut</option>
+                        <option value="fruit" class="option">Fruit</option>
+                        <option value="pistachio" class="option">Pistachio</option>
+                        <option value="peanut" class="option">Peanut</option>
+                        <option value="caramel" class="option">Caramel</option>
+                        <option value="blackForest" class="option">Black Forest</option>
+                        <option value="strawberry" class="option">Strawberry</option>
+                        <option value="other" class="option">Other</option>
+                    </select>
+                    <div id="customFlavor">
+                        <label for="flavorText" class="flavor-label">Flavour:</label>
+                        <input type="text" id="flavorText" name="flavorText" placeholder="Desired Flavor">
+                    </div>
+                </section class="form-section">
+                <section class="form-section">
+                    <h2>Custom Writing on Cake</h2>
+                    <div class="no-writing">
+                        <input type="radio" id="noWriting" name="customWriting" value="none" class="radio" checked>
+                        <label for="noWriting" class="label">None</label>
+                    </div>
+                    <div class="yes-writing">
+                        <input type="radio" id="yesWriting" name="customWriting" value="yes" class="radio">
+                        <label for="yesWriting" class="label">Add Custom Writing</label>
+                    </div>
+                    <div id="customWritingInput">
+                        <label for="writingText" class="writing-label">Your Message:</label>
+                        <input type="text" id="writingText" name="writingText" placeholder="Happy Birthday...">
+                    </div>
+                </section>
+                <section class="form-section">
+                    <h2>Toppings</h2>
+                    <div>
+                        <input type="checkbox" id="nuts" name="topping" value="nuts" class="topping">
+                        <label for="nuts" class="label">Nuts</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="chocolateChips" name="topping" value="chocolateChips" class="topping">
+                        <label for="chocolateChips" class="label">Chocolate Chips</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="sprinkles" name="topping" value="sprinkles" class="topping">
+                        <label for="sprinkles" class="label">Sprinkles</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="fruit" name="topping" value="fruit" class="topping">
+                        <label for="fruit" class="label">Fresh Fruit</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="whippedCream" name="topping" value="whippedCream" class="topping">
+                        <label for="whippedCream" class="label">Whipped Cream</label>
+                    </div>
+                </section>
+            </div>
+            <section class="input-button-container">
+                <input type="submit" value="Order Cake" id="inputButton" disabled>
             </section>
-            <section class="form-section">
-                <h2>Select Flavor</h2>
-                <select name="flavor" id="cakeFlavor">
-                    <option value="none"></option>
-                    <option value="vanilla" class="option">Vanilla</option>
-                    <option value="chocolate" class="option">Chocolate</option>
-                    <option value="redVelvet" class="option">Red Velvet</option>
-                    <option value="lemon" class="option">Lemon</option>
-                    <option value="banana" class="option">Banana</option>
-                    <option value="cheesecake" class="option">Cheesecake</option>
-                    <option value="coffee" class="option">Coffee</option>
-                    <option value="coconut" class="option">Coconut</option>
-                    <option value="fruit" class="option">Fruit</option>
-                    <option value="pistachio" class="option">Pistachio</option>
-                    <option value="peanut" class="option">Peanut</option>
-                    <option value="caramel" class="option">Caramel</option>
-                    <option value="blackForest" class="option">Black Forest</option>
-                    <option value="strawberry" class="option">Strawberry</option>
-                    <option value="other" class="option">Other</option>
-                </select>
-                <div id="customFlavor">
-                    <label for="flavorText" class="flavor-label">Flavour:</label>
-                    <input type="text" id="flavorText" name="flavorText" placeholder="Desired Flavor">
-                </div>
-            </section class="form-section">
-            <section class="form-section">
-                <h2>Custom Writing on Cake</h2>
-                <div class="no-writing">
-                    <input type="radio" id="noWriting" name="customWriting" value="none" class="radio" checked>
-                    <label for="noWriting" class="label">None</label>
-                </div>
-                <div class="yes-writing">
-                    <input type="radio" id="yesWriting" name="customWriting" value="yes" class="radio">
-                    <label for="yesWriting" class="label">Add Custom Writing</label>
-                </div>
-                <div id="customWritingInput">
-                    <label for="writingText" class="writing-label">Your Message:</label>
-                    <input type="text" id="writingText" name="writingText" placeholder="Happy Birthday...">
-                </div>
-            </section>
-            <section class="form-section">
-                <h2>Toppings</h2>
-                <div>
-                    <input type="checkbox" id="nuts" name="topping" value="nuts" class="topping">
-                    <label for="nuts" class="label">Nuts</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="chocolateChips" name="topping" value="chocolateChips" class="topping">
-                    <label for="chocolateChips" class="label">Chocolate Chips</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="sprinkles" name="topping" value="sprinkles" class="topping">
-                    <label for="sprinkles" class="label">Sprinkles</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="fruit" name="topping" value="fruit" class="topping">
-                    <label for="fruit" class="label">Fresh Fruit</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="whippedCream" name="topping" value="whippedCream" class="topping">
-                    <label for="whippedCream" class="label">Whipped Cream</label>
-                </div>
-            </section>
-            <input type="submit" value="Order Cake" id="inputButton" disabled>
             <section class="form-section" id="priceDisplaySection">
                 <h2>Estimated Cake Price: <span id="cakePrice">0</span></h2>
             </section>
@@ -115,11 +119,11 @@
     <footer>
         <div class="footer-container">
             <div class="footer-section">
-                <h3 class="footer-title" onclick="location.href='home.html';">Gayane Bakery</h3>
+                <h3 class="footer-title" onclick="location.href='about_us.html';">Gayane Bakery</h3>
                 <p class="footer-information">Delighting you with the freshest bakery products since 2004.</p>
             </div>
             <div class="footer-section">
-                <h3 class="footer-title" onclick="location.href='home.html';">Contact Us</h3>
+                <h3 class="footer-title" onclick="location.href='contacts.html';">Contact Us</h3>
                 <p class="footer-information">Tashkent, Chilanzar 6-37A</p>
                 <p class="footer-information">+998 71 278 01 76</p>
                 <p class="footer-information">+998 90 977 13 87</p>
