@@ -50,14 +50,18 @@ p{
 }
 
 .scroll-button{
-    width: 8em;
-    height: 5em;
+    height: 2em;
+    font-size: 2.5em;
     top: 50%;
     background-color: rgb(132, 118, 221);
     align-self: center;
     color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
+}
+
+.in-row{
+    display: none;
 }
 
 .staff-member {
@@ -98,8 +102,8 @@ p{
         float: none;
     }
     .scroll-button {
-        width: 4em;
-        height: 2.5em;
+        height: 2em;
+        font-size: 1.8em;
     }
     .name{
         font-size: 1em;
@@ -119,17 +123,33 @@ p{
         height: 75vw;
     }
     .scroll-button {
-        width: 3em;
-        height: 2.5em;
+        height: 2em;
+        font-size: 1.7em;
     }
     .staff-members-scroll{
-        scroll-padding-inline: 3%;
+        scroll-padding-inline: 7%;
     }
 }
 
 @media (max-width: 590px) {
     .staff-member-container{
-        display: inline;
-        position: relative;
+        display: block;
+        text-align: center;
+    }
+    .staff-member{
+        margin-inline: 3em;
+    }
+    .staff-members-scroll{
+        scroll-padding-inline: 7%;
+    }
+    .scroll-button{
+        height: 1.8em;
+        font-size: 1.4em;
+    }
+    .in-row{
+        display: inline-block;
+    }
+    .by-sides{
+        display: none;
     }
 }

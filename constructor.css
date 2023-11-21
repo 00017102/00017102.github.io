@@ -57,7 +57,8 @@ select, input[type="text"] {
 }
 
 #inputButton:hover {
-    background-color: #547aed;
+    background-color: #2c5ced;
+    color: #ffffff;
 }
 
 #inputButton:disabled,

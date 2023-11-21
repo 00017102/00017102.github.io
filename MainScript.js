@@ -10,6 +10,10 @@ class Product{
         return `${this.price} sum`;
     }
 }
+//format srice
+function formatPrice(totalPrice){
+    return `${totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} sum`;
+}
 
 class CartProduct{
     constructor(title, price, imgSrc, quantity = 1){
@@ -23,8 +27,10 @@ class CartProduct{
     }
 }
 
-let cartProducts = [
-
+const cartProducts = [
+    new CartProduct("Clinkers", 400000, "https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg", 4),
+    new CartProduct("Potato Cake",350000, "https://assets.bonappetit.com/photos/5f7f4a04ba63e7584fca0518/1:1/w_2560%2Cc_limit/Dessert-Sweet-Potato-Cake-Salted-Cream-Cheese.jpg"),
+    new CartProduct("Strawberry Cheesecake",50000, "https://sugarspunrun.com/wp-content/uploads/2023/06/Strawberry-cheesecake-recipe-6-of-8.jpg"),
 ]
 //creating instances
 const topProducts = [
@@ -150,9 +156,12 @@ function createProducts(grid, gridItem, products, enableWindow = true) {
         productCard.querySelector('.add-button').addEventListener('click', function(){
             const cartProduct = new CartProduct(product.title, product.price, product.imgSrc);
             cartProducts.push(cartProduct);
-            console.log(cartProducts);
-            productCard.querySelector('.modify-quantity').addEventListener('change', function(){
-                console.log(cartProducts);
+            encodeCartToURL(cartProducts);
+            productCard.querySelector('.decrement-button').addEventListener('click', function(){
+                const quantity = productCard.querySelector('.quantity').innerHTML;
+                cartProducts[cartProducts.findIndex(item => item.title == cartProduct.title)].quantity = quantity;
+            })
+            productCard.querySelector('.increment-button').addEventListener('click', function(){
                 const quantity = productCard.querySelector('.quantity').innerHTML;
                 cartProducts[cartProducts.findIndex(item => item.title == cartProduct.title)].quantity = quantity;
             })
@@ -162,6 +171,31 @@ function createProducts(grid, gridItem, products, enableWindow = true) {
     });
 }
 
+function createCart(container, cartTemplate, cartItems){
+    let totalPrice = document.querySelector
+    cartItems.forEach(cartItem => {
+        const item = cartTemplate.cloneNode(true);
+        const price =  cartItem.price * cartItem.quantity
+        item.id = ''
+        item.querySelector('.image').src = cartItem.imgSrc;
+        item.querySelector('.name').textContent = cartItem.title;
+        item.querySelector('.quantity').textContent = cartItem.quantity;
+        item.querySelector('.increment-button').addEventListener('click', function(){
+            const quantity = item.querySelector('.quantity').innerHTML;
+            item.querySelector('.price').textContent = formatPrice(cartItem.price * quantity);
+        })
+        item.querySelector('.decrement-button').addEventListener('click', function(){
+            const quantity = item.querySelector('.quantity').innerHTML;
+            console.log(quantity);
+            item.querySelector('.price').textContent = formatPrice(cartItem.price * quantity);
+            if(item.querySelector('.quantity-container').style.display == 'none'){
+                item.style.display = 'none';
+            }
+        })
+        item.querySelector('.price').textContent = formatPrice(price);
+        container.appendChild(item);
+    });
+}
 
 function openwindow(product) {
     let windowContainer = document.getElementById('windowContainer');
@@ -211,6 +245,7 @@ function openSidebar(){
     closeSidebarIcon = document.getElementById('closeSidebarIcon');
     sidebarContainer = document.getElementById('sidebarContainer');
     burgerMenuIcon.addEventListener('click', function(){
+        console.log(cartProducts);
         sidebarContainer.style.display = 'block';
         document.body.style.overflow = 'hidden';
     });
@@ -224,11 +259,16 @@ document.addEventListener('DOMContentLoaded', ()=> {
     openSidebar()
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('cartItems');
+    const template = document.getElementById('cartTemplate');
+    createCart(container, template, cartProducts);
+});
 
 //when dom loaded create top products
 document.addEventListener('DOMContentLoaded', () => {
     const topProductsGrid = document.querySelector('.top-products-grid');
-    const gridItem = document.getElementById('template')
+    const gridItem = document.getElementById('template');
     //pass false to not create windows when clicked on products on main page
     createProducts(topProductsGrid, gridItem, topProducts, false);    
 });
@@ -346,11 +386,7 @@ function updatePrice() {
     }else{
         document.getElementById('inputButton').setAttribute('disabled', '');
     }
-    //format srice
-    function formatPrice(totalPrice){
-        return totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    }
 
     //update price display
-    document.getElementById('cakePrice').innerHTML = `${formatPrice(totalPrice)} sum`;
+    document.getElementById('cakePrice').innerHTML = formatPrice(totalPrice);
 }

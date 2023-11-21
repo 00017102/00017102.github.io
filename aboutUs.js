@@ -38,15 +38,18 @@ function createStaff(){
 
 function scroll(){
     const scrollContainer = document.querySelector('.staff-members-scroll');
-    const leftButton = document.querySelector('.scroll-button.left');
-    const rightButton = document.querySelector('.scroll-button.right');
+    const leftButtons = document.querySelectorAll('.scroll-button.left');
+    const rightButtons = document.querySelectorAll('.scroll-button.right');
     const scrollWidth = scrollContainer.lastChild.offsetWidth;
-    leftButton.addEventListener('click', function() {
+    leftButtons.forEach(leftButton => {
+        leftButton.addEventListener('click', function() {
             scrollContainer.scrollLeft -= scrollWidth;
+    }); 
     });
-    
-    rightButton.addEventListener('click', function() {
+    rightButtons.forEach( rightButton => { 
+        rightButton.addEventListener('click', function() {
             scrollContainer.scrollLeft += scrollWidth;
+    });
     });
 }
 
