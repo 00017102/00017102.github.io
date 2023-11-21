@@ -338,6 +338,8 @@ function updatePrice() {
     const customWritingSelected = document.getElementById('yesWriting').checked;
     //get selected flavor
     const selectedFlavor = document.getElementById('cakeFlavor').value;
+    //get order button
+    const orderButton = document.getElementById('inputButton');
     //prices for each size
     const sizePrices = {
         none: 0,
@@ -372,7 +374,7 @@ function updatePrice() {
     totalPrice += flavorPrices[selectedFlavor];
     //calculate price for toppings
     if(selectedFlavor != 'none' && selectedSize != 'none'){
-        document.getElementById('inputButton').removeAttribute('disabled');
+        orderButton.removeAttribute('disabled');
         const toppings = document.querySelectorAll('input[name="topping"]:checked');
         const numberOfToppings = toppings.length;
         totalPrice += numberOfToppings * toppingPrice;
@@ -382,7 +384,7 @@ function updatePrice() {
             totalPrice += customWritingPrice;
         }
     }else{
-        document.getElementById('inputButton').setAttribute('disabled', '');
+        orderButton.setAttribute('disabled', '');
     }
 
     //update price display
