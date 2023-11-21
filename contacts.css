@@ -1,11 +1,10 @@
 .contact-section {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.15em;
     display: flex;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 100%;
+    padding: 2.5em;
     justify-content: space-evenly;
+    align-items: center;
     margin: 0 auto;
 }
 
@@ -14,7 +13,11 @@
 }
 .contact-section h1 {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 1.2em;
+}
+.contact{
+    align-self: center;
+    margin-right: 5em;
 }
 
 .contact-info .numbers a,
@@ -44,7 +47,41 @@
     margin-left: 0.4em;
 }
 
+.map{
+    width: 40%;
+    height: 50vh;
+}
+
 .contact-info p {
-    margin: 10px 0;
-    line-height: 1.6;
+    margin: 1em 0;
+}
+
+@media (max-width: 1150px){
+    .contact-section{
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 1000px){
+    .contact-section{
+        font-size: 1.1em;
+        flex-direction: column;
+    }
+    .contact{
+        margin-right: unset;
+        margin-bottom: 3em;
+    }
+    .map{
+        width: 90%;
+    }
+}
+
+@media (max-width: 660px){
+    .contact-section{
+        font-size: 1em;
+        padding: 1.2em;
+    }
+    .map{
+        width: 100%;
+    }
 }

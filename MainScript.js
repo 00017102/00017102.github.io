@@ -153,19 +153,18 @@ function createProducts(grid, gridItem, products, enableWindow = true) {
                 }
             });
         }
-        productCard.querySelector('.add-button').addEventListener('click', function(){
-            const cartProduct = new CartProduct(product.title, product.price, product.imgSrc);
-            cartProducts.push(cartProduct);
-            encodeCartToURL(cartProducts);
-            productCard.querySelector('.decrement-button').addEventListener('click', function(){
-                const quantity = productCard.querySelector('.quantity').innerHTML;
-                cartProducts[cartProducts.findIndex(item => item.title == cartProduct.title)].quantity = quantity;
-            })
-            productCard.querySelector('.increment-button').addEventListener('click', function(){
-                const quantity = productCard.querySelector('.quantity').innerHTML;
-                cartProducts[cartProducts.findIndex(item => item.title == cartProduct.title)].quantity = quantity;
-            })
-        });
+        // productCard.querySelector('.add-button').addEventListener('click', function(){
+        //     const cartProduct = new CartProduct(product.title, product.price, product.imgSrc);
+        //     cartProducts.push(cartProduct);
+        //     productCard.querySelector('.decrement-button').addEventListener('click', function(){
+        //         const quantity = productCard.querySelector('.quantity').innerHTML;
+        //         cartProducts[cartProducts.findIndex(item => item.title == cartProduct.title)].quantity = quantity;
+        //     })
+        //     productCard.querySelector('.increment-button').addEventListener('click', function(){
+        //         const quantity = productCard.querySelector('.quantity').innerHTML;
+        //         cartProducts[cartProducts.findIndex(item => item.title == cartProduct.title)].quantity = quantity;
+        //     })
+        // });
         //append the card to the container
         grid.appendChild(productCard);
     });
@@ -245,7 +244,6 @@ function openSidebar(){
     closeSidebarIcon = document.getElementById('closeSidebarIcon');
     sidebarContainer = document.getElementById('sidebarContainer');
     burgerMenuIcon.addEventListener('click', function(){
-        console.log(cartProducts);
         sidebarContainer.style.display = 'block';
         document.body.style.overflow = 'hidden';
     });
