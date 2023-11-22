@@ -28,6 +28,7 @@ class CartProduct{
 }
 
 const cartProducts = [
+    new CartProduct("Brauni", 15000, "https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg", 2),
     new CartProduct("Clinkers", 400000, "https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg", 4),
     new CartProduct("Potato Cake",350000, "https://assets.bonappetit.com/photos/5f7f4a04ba63e7584fca0518/1:1/w_2560%2Cc_limit/Dessert-Sweet-Potato-Cake-Salted-Cream-Cheese.jpg"),
     new CartProduct("Strawberry Cheesecake",50000, "https://sugarspunrun.com/wp-content/uploads/2023/06/Strawberry-cheesecake-recipe-6-of-8.jpg"),
@@ -171,22 +172,30 @@ function createProducts(grid, gridItem, products, enableWindow = true) {
 }
 
 function createCart(container, cartTemplate, cartItems){
-    let totalPrice = document.querySelector
+    const totalPriceContainer = document.getElementById("totalPrice");
+    let totalPrice = 0;
     cartItems.forEach(cartItem => {
         const item = cartTemplate.cloneNode(true);
         const price =  cartItem.price * cartItem.quantity
-        item.id = ''
+        totalPrice += price;
+        totalPriceContainer.textContent = formatPrice(totalPrice);
+        item.id = '';
+        item.style.display = 'flex';
         item.querySelector('.image').src = cartItem.imgSrc;
         item.querySelector('.name').textContent = cartItem.title;
         item.querySelector('.quantity').textContent = cartItem.quantity;
+        
         item.querySelector('.increment-button').addEventListener('click', function(){
             const quantity = item.querySelector('.quantity').innerHTML;
             item.querySelector('.price').textContent = formatPrice(cartItem.price * quantity);
+            totalPrice += cartItem.price;
+            totalPriceContainer.textContent = formatPrice(totalPrice);
         })
         item.querySelector('.decrement-button').addEventListener('click', function(){
             const quantity = item.querySelector('.quantity').innerHTML;
-            console.log(quantity);
             item.querySelector('.price').textContent = formatPrice(cartItem.price * quantity);
+            totalPrice -= cartItem.price;
+            totalPriceContainer.textContent = formatPrice(totalPrice);
             if(item.querySelector('.quantity-container').style.display == 'none'){
                 item.style.display = 'none';
             }
@@ -255,13 +264,55 @@ function openSidebar(){
 
 document.addEventListener('DOMContentLoaded', ()=> {
     openSidebar()
+    
 });
 
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('cartItems');
     const template = document.getElementById('cartTemplate');
     createCart(container, template, cartProducts);
+    openCheckout();
+    checkoutFormat();
 });
+
+function openCheckout(){
+    const modal = document.getElementById("checkoutModal");
+    // Get the button that opens the modal
+    const btn = document.getElementById("checkoutButton");
+    // Get the <span> element that closes the modal
+    const span = document.getElementById("close");
+    // When the user clicks the button, open the modal
+    const withdrawAmount = document.getElementById('withdrawAmount');
+    btn.onclick = function() {
+        modal.style.display = "block";
+        withdrawAmount.textContent = document.getElementById("totalPrice").innerHTML;
+    }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+function checkoutFormat(){
+    document.getElementById('cardNumber').addEventListener('input', function (card) {
+        const target = card.target
+        target.value = target.value.replace(/\s+/g, '').replace(/(\d{4})/g, '$1 ');
+    });
+    document.getElementById('cardExpiry').addEventListener('input', function (date) {
+        const target = date.target;
+        let value = target.value.replace(/\D/g, '');
+        if (value.length > 2) {
+            value = value.substring(0, 2) + ' / ' + value.substring(2, 4);
+        }
+        target.value = value;
+    });
+}
 
 //when dom loaded create top products
 document.addEventListener('DOMContentLoaded', () => {
