@@ -10,11 +10,13 @@ class Product{
         return `${this.price} sum`;
     }
 }
-//format srice
+
+//format price
 function formatPrice(totalPrice){
     return `${totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} sum`;
 }
 
+//cart product class
 class CartProduct{
     constructor(title = "Custom Cake", price, imgSrc = "logo.png", quantity = 1, custom = false, size = null, flavor = null, writing = null, toppings = null){
         this.title = title;
@@ -27,11 +29,9 @@ class CartProduct{
         this.writing = writing;
         this.toppings = toppings;
     }
-    formatPrice() {
-        return `${this.price} sum`;
-    }
 }
 
+//creating cart instances
 const cartProducts = [
     new CartProduct("Brauni", 15000, "https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg", 2),
     new CartProduct("Clinkers", 400000, "https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg", 4),
@@ -40,7 +40,7 @@ const cartProducts = [
     new CartProduct("Brauni", 15000, "https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg", 2),
     new CartProduct(undefined, 175000, undefined, undefined, true, "Bento: 1-2 people", "Chocolate", "Happy Birthday", ["Chocolate Chips", "Fresh Fruit"])
 ]
-//creating instances
+//creating top product instances
 const topProducts = [
     new Product("Brauni", "Some description about the bakery with information of what was it made of etc.", "15 000", "https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg"),
     new Product("Clinkers", "Some description about the cake with information of what was it made of etc.", "400 000", "https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg"),
@@ -56,7 +56,7 @@ const topProducts = [
     new Product("Eggless Black Forest", "Some description about the bakery with the information of what was it made of etc.", "40 000","https://j6e2i8c9.rocketcdn.me/wp-content/uploads/2021/05/Eggless-Black-forest-Pastry-recipe-1.jpg"),
     new Product("Choux", "Some description about the bakery with information of what was it made of etc.", "15 000","https://sugarspunrun.com/wp-content/uploads/2023/02/choux-pastry-recipe-1-of-1-2.jpg")
 ]
-
+//creating manu instances
 const cakes = [
     new Product("Clinkers", "Some description about the cake with information of what was it made of etc.", "400 000", "https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg"),
     new Product("Potato Cake", "Some description about the cake with information of what was it made of etc.", "350 000", "https://assets.bonappetit.com/photos/5f7f4a04ba63e7584fca0518/1:1/w_2560%2Cc_limit/Dessert-Sweet-Potato-Cake-Salted-Cream-Cheese.jpg"),
@@ -84,7 +84,7 @@ const cookies = [
     new Product("Vegan Chocolate", "Some description about the cookie with information of what was it made of etc.", "1 000" ,"https://lovingitvegan.com/wp-content/uploads/2021/10/Vegan-Chocolate-Cookies-Square.jpg"),
     new Product("Lactation", "Some description about the cookie with information of what was it made of etc.", "9 000" ,"https://assets.bonappetit.com/photos/61f87c0fb7fba5e3be0da664/3:2/w_4349,h_2899,c_limit/AOTT-Lactation-cookies.jpg")
 ]
-
+//function to create menu grid
 function createMenuItems(){
     const menuGrid = document.querySelector('.menu-grid')
     const gridItem = document.getElementById('template')
@@ -146,7 +146,7 @@ function updateMenuGrid(menuGrid, gridItem, products, button){
     createProducts(menuGrid, gridItem, products);
 }
 
-
+//functuion for creating produts
 function createProducts(grid, gridItem, products, enableWindow = true) {
     products.forEach(product => {
         const productCard = gridItem.cloneNode(true);
@@ -179,11 +179,13 @@ function createProducts(grid, gridItem, products, enableWindow = true) {
         //         cartProducts[cartProducts.findIndex(item => item.title == cartProduct.title)].quantity = quantity;
         //     })
         // });
+
         //append the card to the container
         grid.appendChild(productCard);
     });
 }
 
+//function to create cart products
 function createCart(container, cartTemplate, cartItems){
     const totalPriceContainer = document.getElementById("totalPrice");
     let totalPrice = 0;
@@ -197,6 +199,7 @@ function createCart(container, cartTemplate, cartItems){
         item.querySelector('.image').src = cartItem.imgSrc;
         item.querySelector('.quantity').textContent = cartItem.quantity;
         item.querySelector('.name').textContent = cartItem.title;
+        // if the item is from cunstructor page, make the section visible and update the content
         if(cartItem.custom == true){
             item.querySelector(".customDetails").style.display = "block";
             item.querySelector(".size").textContent = cartItem.size;
@@ -204,7 +207,7 @@ function createCart(container, cartTemplate, cartItems){
             item.querySelector(".writing").textContent = cartItem.writing;
             item.querySelector(".toppings").textContent = cartItem.toppings;
         }
-        
+        //change prices (total and for one product) when incrementing or decrementing quantity 
         item.querySelector('.increment-button').addEventListener('click', function(){
             const quantity = item.querySelector('.quantity').innerHTML;
             item.querySelector('.price').textContent = formatPrice(cartItem.price * quantity);
@@ -221,10 +224,12 @@ function createCart(container, cartTemplate, cartItems){
             }
         })
         item.querySelector('.price').textContent = formatPrice(price);
+        //append
         container.appendChild(item);
     });
 }
 
+//open window un menu page
 function openwindow(product) {
     let windowContainer = document.getElementById('windowContainer');
     windowContainer.style.display = "block";
@@ -268,6 +273,7 @@ function changeQuantity(element, delta){
     quantityDisplay.textContent = quantity;
 }
 
+//open and close sidebar
 function openSidebar(){
     burgerMenuIcon = document.getElementById('burgerMenuIcon');
     closeSidebarIcon = document.getElementById('closeSidebarIcon');
@@ -293,28 +299,31 @@ document.addEventListener('DOMContentLoaded', () => {
     createCart(container, template, cartProducts);
     openCheckout();
     checkoutFormat();
+    //alert when user "pays" for items to give feedback
     document.getElementById('checkoutForm').addEventListener('submit', function() {
         alert('Order Received!');
     });
 });
 
+//open checkout window 
 function openCheckout(){
     const modal = document.getElementById("checkoutModal");
-    // Get the button that opens the modal
+    //get the button that opens the modal
     const btn = document.getElementById("checkoutButton");
-    // Get the <span> element that closes the modal
-    const span = document.getElementById("close");
-    // When the user clicks the button, open the modal
+    //get the button that closes the modal
+    const button = document.getElementById("close");
+    // open the modal
     const withdrawAmount = document.getElementById('withdrawAmount');
     btn.onclick = function() {
         modal.style.display = "block";
+        //pass total price
         withdrawAmount.textContent = document.getElementById("totalPrice").innerHTML;
     }
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    // close the modal
+    button.onclick = function() {
         modal.style.display = "none";
     }
-    // When the user clicks anywhere outside of the modal, close it
+    //if user clicks outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -322,11 +331,14 @@ function openCheckout(){
     }
 }
 
+//format input of user
 function checkoutFormat(){
+    //add spaces after every 4 digits of card
     document.getElementById('cardNumber').addEventListener('input', function (card) {
         const target = card.target
         target.value = target.value.replace(/\s+/g, '').replace(/(\d{4})/g, '$1 ');
     });
+    // add / after two digigts 
     document.getElementById('cardExpiry').addEventListener('input', function (date) {
         const target = date.target;
         let value = target.value.replace(/\D/g, '');
@@ -337,7 +349,6 @@ function checkoutFormat(){
     });
 }
 
-//when dom loaded create top products
 document.addEventListener('DOMContentLoaded', () => {
     const topProductsGrid = document.querySelector('.top-products-grid');
     const gridItem = document.getElementById('template');
@@ -345,7 +356,6 @@ document.addEventListener('DOMContentLoaded', () => {
     createProducts(topProductsGrid, gridItem, topProducts, false);    
 });
 
-//when dom loaded create menu items
 document.addEventListener("DOMContentLoaded", () => {
     createMenuItems();
 })
@@ -363,8 +373,14 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('input[name="topping"]').forEach(function(elem){
         elem.addEventListener('change', updatePrice);
     });
+    //event listener for flavor selection
+    document.getElementById('cakeFlavor').addEventListener('change', function() {
+        showCustomFlavorInput();
+        updatePrice();
+    });
 });
 
+//display input to write the writing 
 function showCustomWriting(){
     //listen for changes on the custom writing radio buttons
     document.querySelectorAll('input[name="customWriting"]').forEach(function(elem) {
@@ -379,7 +395,8 @@ function showCustomWriting(){
         });
     });
 }
-//if user chose other show input 
+
+//if user chose other flavor display input 
 function showCustomFlavorInput() {
     const selectedFlavor = document.getElementById('cakeFlavor').value;
     const customFlavorDiv = document.getElementById('customFlavor');
@@ -390,13 +407,6 @@ function showCustomFlavorInput() {
         customFlavorDiv.style.display = 'none';
     }
 }
-
-// Event listener for flavor selection
-document.getElementById('cakeFlavor').addEventListener('change', function() {
-    showCustomFlavorInput();
-    updatePrice();
-});
-
 
 
 //calculate and update the price
