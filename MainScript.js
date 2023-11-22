@@ -39,6 +39,8 @@ const topProducts = [
     new Product("Clinkers", "Some description about the cake with information of what was it made of etc.", "400 000", "https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg"),
     new Product("Potato Cake", "Some description about the cake with information of what was it made of etc.", "350 000", "https://assets.bonappetit.com/photos/5f7f4a04ba63e7584fca0518/1:1/w_2560%2Cc_limit/Dessert-Sweet-Potato-Cake-Salted-Cream-Cheese.jpg"),
     new Product("Strawberry Cheesecake", "Some description about the dessert with information of what was it made of etc.", "50 000", "https://sugarspunrun.com/wp-content/uploads/2023/06/Strawberry-cheesecake-recipe-6-of-8.jpg"),
+    new Product("Classic Peanut Butter", "Some description about the cookie with information of what was it made of etc.", "6 000" ,"https://www.allrecipes.com/thmb/aeMeDEKlRCFKrx-RnghY-4q1BSY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1-275-classic-peanut-butter-cookies-mfs15-1-8cbd4a21fe5f474982c00fecafae57bf.jpg"),
+    new Product("Vegan Chocolate", "Some description about the cookie with information of what was it made of etc.", "1 000" ,"https://lovingitvegan.com/wp-content/uploads/2021/10/Vegan-Chocolate-Cookies-Square.jpg"),
     new Product("Nake Cake", "Some description about the cake with information of what was it made of etc.", "560 000", "https://preppykitchen.com/wp-content/uploads/2022/05/Naked-Cake-Recipe-Card.jpg"),
     new Product("Chocolate Puff", "Some description about the bakery with information of what was it made of etc.", "20 000", "https://www.marcellinaincucina.com/wp-content/uploads/2022/04/chocolate-pastry-puffs-5-2.jpg"),
     new Product("Classic cheescake", "Some description about the dessert with information of what was it made of etc.", "60 000", "https://img.taste.com.au/3kqM4rqu/w720-h480-cfill-q80/taste/2016/11/classic-baked-vanilla-cheesecake-53202-1.jpeg"),
@@ -69,7 +71,11 @@ const bakeries = [
 ]
 
 const cookies = [
-
+    new Product("Chocolate Chip", "Some description about the cookie with information of what was it made of etc.", "2 000" ,"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2ChocolateChipCookies.jpg/1200px-2ChocolateChipCookies.jpg"),
+    new Product("Thumbprint", "Some description about the cookie with information of what was it made of etc.", "3 000" ,"https://www.simplyrecipes.com/thmb/APIABqEVy1K6QDOS11VY1_VQ3JA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Thumbprint-Cookies-LEAD-13-4ee6f2b1e4cf4d9c84f362b7c57adaaa.JPG"),
+    new Product("Classic Peanut Butter", "Some description about the cookie with information of what was it made of etc.", "6 000" ,"https://www.allrecipes.com/thmb/aeMeDEKlRCFKrx-RnghY-4q1BSY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1-275-classic-peanut-butter-cookies-mfs15-1-8cbd4a21fe5f474982c00fecafae57bf.jpg"),
+    new Product("Vegan Chocolate", "Some description about the cookie with information of what was it made of etc.", "1 000" ,"https://lovingitvegan.com/wp-content/uploads/2021/10/Vegan-Chocolate-Cookies-Square.jpg"),
+    new Product("Lactation", "Some description about the cookie with information of what was it made of etc.", "9 000" ,"https://assets.bonappetit.com/photos/61f87c0fb7fba5e3be0da664/3:2/w_4349,h_2899,c_limit/AOTT-Lactation-cookies.jpg")
 ]
 
 function createMenuItems(){
