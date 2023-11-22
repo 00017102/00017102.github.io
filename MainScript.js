@@ -273,6 +273,11 @@ document.addEventListener('DOMContentLoaded', () => {
     createCart(container, template, cartProducts);
     openCheckout();
     checkoutFormat();
+    document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Order Submitted!');
+        document.getElementById('checkoutForm').reset();
+    });
 });
 
 function openCheckout(){
