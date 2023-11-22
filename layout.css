@@ -1,3 +1,4 @@
+/* overall style for whole and every page*/
 body{
     font-family: Helvetica, Arial;
     display: flex;
@@ -12,11 +13,10 @@ main{
     flex: 1;
 }
 
-
 /* Burger Menu Icon */
 #burgerMenuIcon {
     cursor: pointer;
-    display: none; /* Hidden by default */
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     width: 2rem;
@@ -26,7 +26,7 @@ main{
 .burger-line {
     width: 2rem;
     height: 0.25rem;
-    background-color: #333; /* Or any color that fits your design */
+    background-color: #333;
     border-radius: 10px;
 }
 
@@ -171,6 +171,7 @@ footer {
     animation-iteration-count: infinite;
 }
 
+/* animation */
 @keyframes important{
     50% {color: #ff0000;}
     100% {color: #000000;}
@@ -189,7 +190,6 @@ footer {
 }
 
 /*bottom navigation to appear */
-
 .bottom-nav-container {
     font-family:Georgia;
     display: none;
@@ -248,8 +248,8 @@ footer {
     font-size: 0.75rem; /* Text size */
 }
 
-/* bottom navigation appearing*/
-
+/* bottom navigation appearing */
+/* improvments for smaller screens */
 @media (max-width: 950px){
     .bottom-nav-container {
         display: inline-block;

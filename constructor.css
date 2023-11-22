@@ -1,6 +1,8 @@
 h1{
     margin: 0.5em;
 }
+
+/* Form */
 h1, h2 {
     color: #333333
 }
@@ -100,7 +102,7 @@ sup{
     gap: 1rem; /* space between grid items */
 }
 
-
+/* improvment for smaller screens */
 @media (max-width: 768px) {
     #priceDisplaySection {
         margin: 1em;

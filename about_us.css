@@ -2,6 +2,7 @@
     padding: 20px;
 }
 
+/* about bakery section */
 h1{
     font-size: 2.1em;
 }
@@ -33,7 +34,7 @@ p{
     font-family: Georgia, Times, 'Times New Roman', serif;
 }
 
-/*staff*/
+/*staff srction*/
 
 .staff-member-container{
     position: relative;
@@ -60,6 +61,7 @@ p{
     cursor: pointer;
 }
 
+/* buttons to apear in small screens */
 .in-row{
     display: none;
 }
@@ -96,6 +98,7 @@ p{
     font-size: 1em;
 }
 
+/* improvmentsd for smaller sceens */
 @media (max-width: 768px) {
     .bakery-image{
         width: 100%;

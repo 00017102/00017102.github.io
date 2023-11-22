@@ -458,6 +458,7 @@ function updatePrice() {
     totalPrice += flavorPrices[selectedFlavor];
     //calculate price for toppings
     if(selectedFlavor != 'none' && selectedSize != 'none'){
+        //enable the button if user selected flavor and size
         orderButton.removeAttribute('disabled');
         const toppings = document.querySelectorAll('input[name="topping"]:checked');
         const numberOfToppings = toppings.length;
@@ -471,6 +472,7 @@ function updatePrice() {
         orderButton.setAttribute('disabled', '');
     }
     document.getElementById('cakeCunstructorForm').addEventListener('submit', function() {
+        // alert when user submits the form
         alert('Cake Submited!');
     });
 

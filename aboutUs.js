@@ -1,3 +1,4 @@
+//staff class
 class Staff{
     constructor(imgSrc, name, role, description){
         this.imgSrc = imgSrc;
@@ -7,6 +8,7 @@ class Staff{
     }
 }
 
+//staff members instances
 const staffMembers = [
     new Staff("https://cdn.iz.ru/sites/default/files/styles/420x480/public/tag-2022-06/Putin%201_4.jpg?itok=B-z9pZfY", "Vladimir Putin", "CEO", "Brief Description about the staff member, their experience, and their role in the bakery"),
     new Staff("https://www.gatesfoundation.org/-/media/gfo/3about/3people/ga311881_bill_gates.jpg", "Bill Gates", "COO", "Brief Description about the staff member, their experience, and their role in the bakery"),
@@ -19,6 +21,7 @@ const staffMembers = [
     new Staff("https://tengrinews.kz/userdata/news/2021/news_448347/thumb_m/photo_373693.jpeg", "Burak Ozdemir", "Sous Chef", "Brief Description about the staff member, their experience, and their role in the bakery"),
 ]
 
+//create staff on page
 function createStaff(){
     const container = document.querySelector('.staff-members-scroll');
     const member = document.getElementById('template');
@@ -36,6 +39,7 @@ function createStaff(){
     });
 }
 
+// enable horizontal scroll with buttons
 function scroll(){
     const scrollContainer = document.querySelector('.staff-members-scroll');
     const leftButtons = document.querySelectorAll('.scroll-button.left');

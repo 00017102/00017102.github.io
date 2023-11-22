@@ -1,3 +1,4 @@
+/* Contacts */
 .contact-section {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.15em;
@@ -56,6 +57,7 @@
     margin: 1em 0;
 }
 
+/* improvments for smaller screens */
 @media (max-width: 1150px){
     .contact-section{
         font-size: 1em;

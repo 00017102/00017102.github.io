@@ -1,9 +1,8 @@
-/* Menu */
 .section-title{
     font-size: 2em;
     font-family: Helvetica;
 }
-
+/* Menu */
 .menu-container {
     width: 100%;
     padding: 2em 1.25em;
@@ -55,7 +54,6 @@
 }
 
 /* Top Products section */
-
 .top-products-container {
     padding: 2em 1.25em; /*space between two sections*/
     margin-top: 2em;
@@ -69,7 +67,6 @@
 }
 
 /* Top Products item */
-
 .grid-item {
     display: none;
     background-color: #fff;
@@ -152,7 +149,7 @@
     font-size: 1.5rem;
 }
 
-/* other improvments for little screens*/
+/* improvments for little screens*/
 @media (max-width: 660px) {
     .menu-container .menu {
         overflow-x:scroll;
