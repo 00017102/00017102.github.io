@@ -16,6 +16,11 @@ main{
     background-color: #d9e3da;
 }
 
+.customDetails{
+    display: none;
+    list-style-type:none;
+}
+
 .cart-content{
     display: flex;
 }
@@ -109,16 +114,15 @@ main{
 }
 
 #close {
-    color: #aaa;
+    fill: #aaa;
     float: right;
-    font-size: 2.6em;
-    font-weight: bold;
+    height: 1.5em;
     cursor: pointer;
 }
 
 #close:hover,
 #close:focus {
-    color: black;
+    fill: #000000;
     text-decoration: none;
     cursor: pointer;
 }
@@ -167,6 +171,16 @@ button[type="submit"]:hover {
 
 #checkoutForm{
     text-align: center;
+}
+
+.footnote span,
+sup{
+    color: #ff0000;
+}
+
+.footnote{
+    text-align: left;
+    color: #7d7878;
 }
 
 #checkoutForm p{

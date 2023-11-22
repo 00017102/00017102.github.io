@@ -16,11 +16,16 @@ function formatPrice(totalPrice){
 }
 
 class CartProduct{
-    constructor(title, price, imgSrc, quantity = 1){
+    constructor(title = "Custom Cake", price, imgSrc = "logo.png", quantity = 1, custom = false, size = null, flavor = null, writing = null, toppings = null){
         this.title = title;
         this.price = price;
         this.imgSrc = imgSrc;
         this.quantity = quantity;
+        this.custom = custom;
+        this.size = size;
+        this.flavor = flavor;
+        this.writing = writing;
+        this.toppings = toppings;
     }
     formatPrice() {
         return `${this.price} sum`;
@@ -32,6 +37,8 @@ const cartProducts = [
     new CartProduct("Clinkers", 400000, "https://img.taste.com.au/hbNtzI2Q/taste/2021/08/clinkers-cake-173208-2.jpg", 4),
     new CartProduct("Potato Cake",350000, "https://assets.bonappetit.com/photos/5f7f4a04ba63e7584fca0518/1:1/w_2560%2Cc_limit/Dessert-Sweet-Potato-Cake-Salted-Cream-Cheese.jpg"),
     new CartProduct("Strawberry Cheesecake",50000, "https://sugarspunrun.com/wp-content/uploads/2023/06/Strawberry-cheesecake-recipe-6-of-8.jpg"),
+    new CartProduct("Brauni", 15000, "https://cdn.cakelab.uz/products/thumbs/1_1681377321.jpg", 2),
+    new CartProduct(undefined, 175000, undefined, undefined, true, "Bento: 1-2 people", "Chocolate", "Happy Birthday", ["Chocolate Chips", "Fresh Fruit"])
 ]
 //creating instances
 const topProducts = [
@@ -188,8 +195,15 @@ function createCart(container, cartTemplate, cartItems){
         item.id = '';
         item.style.display = 'flex';
         item.querySelector('.image').src = cartItem.imgSrc;
-        item.querySelector('.name').textContent = cartItem.title;
         item.querySelector('.quantity').textContent = cartItem.quantity;
+        item.querySelector('.name').textContent = cartItem.title;
+        if(cartItem.custom == true){
+            item.querySelector(".customDetails").style.display = "block";
+            item.querySelector(".size").textContent = cartItem.size;
+            item.querySelector(".flavor").textContent = cartItem.flavor;
+            item.querySelector(".writing").textContent = cartItem.writing;
+            item.querySelector(".toppings").textContent = cartItem.toppings;
+        }
         
         item.querySelector('.increment-button').addEventListener('click', function(){
             const quantity = item.querySelector('.quantity').innerHTML;
@@ -279,10 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
     createCart(container, template, cartProducts);
     openCheckout();
     checkoutFormat();
-    document.getElementById('checkoutForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        alert('Order Submitted!');
-        document.getElementById('checkoutForm').reset();
+    document.getElementById('checkoutForm').addEventListener('submit', function() {
+        alert('Order Received!');
     });
 });
 
@@ -382,7 +394,7 @@ function showCustomFlavorInput() {
 // Event listener for flavor selection
 document.getElementById('cakeFlavor').addEventListener('change', function() {
     showCustomFlavorInput();
-    updatePrice(); // Assuming you have an updatePrice function for price calculation
+    updatePrice();
 });
 
 
@@ -448,6 +460,9 @@ function updatePrice() {
     }else{
         orderButton.setAttribute('disabled', '');
     }
+    document.getElementById('cakeCunstructorForm').addEventListener('submit', function() {
+        alert('Cake Submited!');
+    });
 
     //update price display
     document.getElementById('cakePrice').innerHTML = formatPrice(totalPrice);
